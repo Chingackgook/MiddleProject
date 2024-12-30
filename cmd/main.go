@@ -80,12 +80,12 @@ func main() {
 		service.GetallPost(c)
 	})
 	//管理员搜索用户
-	r.POST("/api/adm/searchUser", func(c *gin.Context) {
+	r.GET("/api/adm/searchUser", func(c *gin.Context) {
 		fmt.Println("收到搜索用户请求")
 		service.AdmSearchUser(c)
 	})
 	//管理员搜索帖子
-	r.POST("/api/adm/searchLog", func(c *gin.Context) {
+	r.GET("/api/adm/searchLog", func(c *gin.Context) {
 		fmt.Println("收到搜索帖子请求")
 		service.AdmSearchPost(c)
 	})
@@ -129,6 +129,17 @@ func main() {
 		fmt.Println("收到登录请求")
 		service.Login(c)
 	})
+	//管理员仅仅警告
+	r.POST("/api/adm/dWarn", func(c *gin.Context) {
+		fmt.Println("收到警告请求")
+		service.AdmOnlyWarn(c)
+	})
+	//管理员仅禁言/封禁
+	r.POST("/api/adm/dBan", func(c *gin.Context) {
+		fmt.Println("收到禁言/封禁请求")
+		service.AdmOnlyBan(c)
+	})
+
 	//获取个人设置接口
 	r.GET("/api/persetting", service.HandleGetPersonalSettings)
 

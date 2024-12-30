@@ -7,8 +7,8 @@ import (
 )
 
 func Connect() (*sql.DB, error) {
-	//dsn := "root:158334@tcp(127.0.0.1:3306)/blog_db"
-	dsn := "root:zjh20031229.@tcp(127.0.0.1:3306)/blog_db"
+	dsn := "root:158334@tcp(127.0.0.1:3306)/blog_db"
+	//dsn := "root:zjh20031229.@tcp(127.0.0.1:3306)/blog_db"
 	db, err := sql.Open("mysql", dsn)
 	if err != nil {
 		return nil, err
